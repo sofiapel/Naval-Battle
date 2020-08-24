@@ -4,7 +4,8 @@
 #include <stddef.h>
 #include <stdint.h>
 
-int casos = 1;
+int casos = 4;
+
 
 
 typedef struct{
@@ -14,9 +15,11 @@ typedef struct{
 
 typedef struct {
 	int longitud;
-	int orientacion; //1 vertical 0 horizontal
+	char orientacion;
 	Pos posicion;
 } Barco;
+
+Barco barcos[100];
 
 int flota(FILE * fp, int n);
 int puedoLeer();
@@ -47,22 +50,27 @@ int sacarInfo(FILE * fp){
 	fscanf(fp,"(%d)\n", &n);
 	fscanf(fp,"Barcos : %d\n", &b);
 	fscanf(fp,"Longitudes");
-	for(int i = 1; i <= b; i++ ){
+	for(int i = 0; i < b; i++ ){
 		fscanf(fp," %c %d",&c,&l);
+		barcos[i].longitud = l;
 		printf("%d\n", l);
 	}
 	fscanf(fp,"\n");
 	fscanf(fp,"Orientaciones");
 	for(int i= 0; i<b;i++){
 		fscanf(fp," %c %s",&c, g);
+		barcos[i].orientacion = g[0];
 		printf("%s\n", g);
 	}
 	fscanf(fp,"\n");
 	fscanf(fp,"Posiciones iniciales");
 	for(int i=0; i< b; i++){
 		fscanf(fp," %c (%c,%d)", &c,&letra,&num);
+		barcos[i].posicion.letra = letra;
+		barcos[i].posicion.num = num;
 		printf("%c %d \n", letra, num);
 	}
+	fscanf(fp,"\n\n");
 	printf("%d\n", b);
 	return b;
 }
