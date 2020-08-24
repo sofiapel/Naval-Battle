@@ -4,6 +4,8 @@
 #include <stddef.h>
 #include <stdint.h>
 
+int casos = 1;
+
 typedef struct{
 	char letra;
 	int  num;
@@ -61,13 +63,16 @@ int main(){
 }
 
 int puedoLeer(){
-	return 0;
+	--casos;
+	return casos >= 0;
 }
 
 void sacarInfo(){
+	printf("sacandoinfo\n");
 
 }
 
 void laburar(){
+	printf("laburar\n");
 
 }
