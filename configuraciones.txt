@@ -1,0 +1,24 @@
+(1)
+Barcos : 3
+Longitudes : 4 - 5 - 6
+Orientaciones : vertical - horizontal - vertical
+Posiciones iniciales : (A,1) - (C,3) - (B,2)
+
+(2)
+Barcos : 4
+Longitudes : 3 - 2 - 4 - 5
+Orientaciones : vertical - vertical - horizontal - vertical
+Posiciones iniciales : (H,3) - (B,2) - (B,6) - (D, 10)
+
+(3)
+Barcos : 3
+Longitudes : 2 - 5 - 6
+Orientaciones : vertical - horizontal - horizontal 
+Posiciones iniciales : (C,1) - (G,3) - (J,2)
+
+(4)
+Barcos : 4
+Longitudes : 2 - 2 - 5 - 4
+Orientaciones : horizontal - vertical - horizontal - vertical
+Posiciones iniciales : (F,2) - (C,5) - (B,2) - (D,10)
+
