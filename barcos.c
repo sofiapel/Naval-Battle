@@ -41,16 +41,20 @@ int puedoLeer(){
 }
 
 int sacarInfo(FILE * fp){
-	char c;
-	int l;
-	int n;
-	int b;
+	char c,g[100];
+	int l, n, b;
 	fscanf(fp,"(%d)\n", &n);
 	fscanf(fp,"Barcos : %d\n", &b);
 	fscanf(fp,"Longitudes");
 	for(int i = 1; i <= b; i++ ){
 		fscanf(fp," %c %d",&c,&l);
 		printf("%d\n", l);
+	}
+	fscanf(fp,"\n");
+	fscanf(fp,"Orientaciones");
+	for(int i= 0; i<b;i++){
+		fscanf(fp," %c %s",&c, g);
+		printf("%s\n", g);
 	}
 	printf("%d\n", b);
 	return b;
