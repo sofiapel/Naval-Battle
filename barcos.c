@@ -16,6 +16,10 @@ typedef struct {
 } Barco;
 
 int flota(FILE * fp, int n);
+int puedoLeer();
+void sacarInfo();
+void laburar();
+
 
 int main(){
 	FILE * fp;
@@ -24,7 +28,7 @@ int main(){
 		sacarInfo();
 		laburar();
 	}
-	flota(fp, n);
+	// flota(fp, n);
 
 	return 0;
 }
@@ -54,4 +58,16 @@ int main(){
 
 	printf("%d\n",x);
 	return x; 
+}
+
+int puedoLeer(){
+	return 0;
+}
+
+void sacarInfo(){
+
+}
+
+void laburar(){
+
 }
