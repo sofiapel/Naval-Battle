@@ -40,6 +40,14 @@ int puedoLeer(){
 }
 
 int sacarInfo(FILE * fp){
+	int n;
+	int b;
+	fscanf(fp,"(%d)\n", &n);
+	fscanf(fp,"Barcos : %d\n", &b);
+	printf("%d", b);
+	return b;
+
+
 	size_t size = 50;
 	char * buff;
 	char * pch;
