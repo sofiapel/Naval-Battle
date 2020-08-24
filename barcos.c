@@ -19,24 +19,27 @@ typedef struct {
 
 int flota(FILE * fp, int n);
 int puedoLeer();
-void sacarInfo();
+int sacarInfo();
 void laburar();
 
 
 int main(){
 	FILE * fp;
 	fp = fopen("configuraciones.txt", "r");
-	while(puedoLeer()){
+	while(puedoLeer(fp)){
 		sacarInfo();
 		laburar();
 	}
-	// flota(fp, n);
 
 	return 0;
 }
 
+int puedoLeer(){
+	--casos;
+	return casos >= 0;
+}
 
- int flota(FILE * fp, int n){
+int sacarInfo(FILE * fp){
 	size_t size = 50;
 	char * buff;
 	char * pch;
@@ -45,7 +48,7 @@ int main(){
 	buff = (char*) malloc (size * sizeof(char));
 	
 	int linesRead = 0;
-	while(linesRead < 6*n - 4){
+	while(linesRead < 2){
 		getline(&buff, &size,fp);
 		linesRead++;
 	}
@@ -60,16 +63,6 @@ int main(){
 
 	printf("%d\n",x);
 	return x; 
-}
-
-int puedoLeer(){
-	--casos;
-	return casos >= 0;
-}
-
-void sacarInfo(){
-	printf("sacandoinfo\n");
-
 }
 
 void laburar(){
