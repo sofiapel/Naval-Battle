@@ -6,6 +6,7 @@
 
 int casos = 1;
 
+
 typedef struct{
 	char letra;
 	int  num;
@@ -40,37 +41,19 @@ int puedoLeer(){
 }
 
 int sacarInfo(FILE * fp){
+	char c;
+	int l;
 	int n;
 	int b;
 	fscanf(fp,"(%d)\n", &n);
 	fscanf(fp,"Barcos : %d\n", &b);
-	printf("%d", b);
+	fscanf(fp,"Longitudes");
+	for(int i = 1; i <= b; i++ ){
+		fscanf(fp," %c %d",&c,&l);
+		printf("%d\n", l);
+	}
+	printf("%d\n", b);
 	return b;
-
-
-	size_t size = 50;
-	char * buff;
-	char * pch;
-	int cnt = 0;
-	int x;
-	buff = (char*) malloc (size * sizeof(char));
-	
-	int linesRead = 0;
-	while(linesRead < 2){
-		getline(&buff, &size,fp);
-		linesRead++;
-	}
-
-	pch = strtok (buff,":\n");
-	
-	while (pch != NULL){
-		cnt++;
-		if(cnt == 2) x = atoi(pch);
-		pch = strtok (NULL,":\n");
-	}
-
-	printf("%d\n",x);
-	return x; 
 }
 
 void laburar(){
