@@ -31,8 +31,8 @@ int main(){
 	FILE * fp;
 	fp = fopen("configuraciones.txt", "r");
 	while(puedoLeer(fp)){
-		sacarInfo();
-		laburar();
+		int b = sacarInfo(fp);
+		laburar(b);
 	}
 
 	return 0;
@@ -53,14 +53,12 @@ int sacarInfo(FILE * fp){
 	for(int i = 0; i < b; i++ ){
 		fscanf(fp," %c %d",&c,&l);
 		barcos[i].longitud = l;
-		printf("%d\n", l);
 	}
 	fscanf(fp,"\n");
 	fscanf(fp,"Orientaciones");
 	for(int i= 0; i<b;i++){
 		fscanf(fp," %c %s",&c, g);
 		barcos[i].orientacion = g[0];
-		printf("%s\n", g);
 	}
 	fscanf(fp,"\n");
 	fscanf(fp,"Posiciones iniciales");
@@ -68,14 +66,20 @@ int sacarInfo(FILE * fp){
 		fscanf(fp," %c (%c,%d)", &c,&letra,&num);
 		barcos[i].posicion.letra = letra;
 		barcos[i].posicion.num = num;
-		printf("%c %d \n", letra, num);
 	}
 	fscanf(fp,"\n\n");
-	printf("%d\n", b);
 	return b;
 }
 
-void laburar(){
+void laburar(int b){
+	for(int i=0; i < b; i++){
+		printf("%d, %c, %c, %d\n",barcos[i].longitud, barcos[i].orientacion, barcos[i].posicion.letra, barcos[i].posicion.num);
+
+	}
 	printf("laburar\n");
 
 }
+
+// 4 v A 1
+// 5 h C 3
+// 6 v B 2
