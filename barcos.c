@@ -73,20 +73,21 @@ int sacarInfo(FILE * fp){
 
 void laburar(int b){
 	for(int i=0; i < b; i++){
-		if (barcos[i].orientacion == 'h')
-			for(int k=0; k < barcos[i].longitud; k++)
-				printf("(%c,%d)", barcos[i].posicion.letra , (barcos[i].posicion.num) + k);
-		else
-			for(int k=0; k<barcos[i].longitud; k++)
-				printf("(%c,%d)", (barcos[i].posicion.letra)+k , barcos[i].posicion.num);
-			
-				
-		
-		
+		printf("[");
+		if (barcos[i].orientacion == 'h'){
+			for(int k=0; k < barcos[i].longitud; k++){
+				if(k>0) printf(",");
+				printf("(%c,%d)", barcos[i].posicion.letra ,barcos[i].posicion.num +  k);
+			}
 		}
-	
-		
-			 
+		else {
+			for(int k=0; k<barcos[i].longitud; k++){
+			    if(k>0) printf(",");
+				printf("(%c,%d)", (barcos[i].posicion.letra)+k , barcos[i].posicion.num);
+			}
+		}
+		printf("]\n");
+	}
 }
 
 
