@@ -71,22 +71,24 @@ int sacarInfo(FILE * fp){
 	return b;
 }
 
-void laburar(int b){
+void laburar(int b ){
+	FILE * fp;
+	fp =fopen("Salida.txt","w");
 	for(int i=0; i < b; i++){
-		printf("[");
+		fprintf(fp,"[");
 		if (barcos[i].orientacion == 'h'){
 			for(int k=0; k < barcos[i].longitud; k++){
-				if(k>0) printf(",");
-				printf("(%c,%d)", barcos[i].posicion.letra ,barcos[i].posicion.num +  k);
+				if(k>0) fprintf(fp,",");
+				fprintf(fp,"(%c,%d)", barcos[i].posicion.letra ,barcos[i].posicion.num +  k);
 			}
 		}
 		else {
 			for(int k=0; k<barcos[i].longitud; k++){
-			    if(k>0) printf(",");
-				printf("(%c,%d)", (barcos[i].posicion.letra)+k , barcos[i].posicion.num);
+			    if(k>0) fprintf(fp,",");
+				fprintf(fp,"(%c,%d)", (barcos[i].posicion.letra)+k , barcos[i].posicion.num);
 			}
 		}
-		printf("]\n");
+		fprintf(fp,"]\n");
 	}
 }
 
