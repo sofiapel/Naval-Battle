@@ -4,7 +4,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
-int casos = 4;
+int casos = 1;
 
 
 
@@ -73,13 +73,23 @@ int sacarInfo(FILE * fp){
 
 void laburar(int b){
 	for(int i=0; i < b; i++){
-		printf("%d, %c, %c, %d\n",barcos[i].longitud, barcos[i].orientacion, barcos[i].posicion.letra, barcos[i].posicion.num);
-
-	}
-	printf("laburar\n");
-
+		if (barcos[i].orientacion == 'h')
+			for(int k=0; k < barcos[i].longitud; k++)
+				printf("(%c,%d)", barcos[i].posicion.letra , (barcos[i].posicion.num) + k);
+		else
+			for(int k=0; k<barcos[i].longitud; k++)
+				printf("(%c,%d)", (barcos[i].posicion.letra)+k , barcos[i].posicion.num);
+			
+				
+		
+		
+		}
+	
+		
+			 
 }
 
-// 4 v A 1
-// 5 h C 3
-// 6 v B 2
+
+// 4 v A 1    
+// 5 h C 3    
+// 6 v B 2    
