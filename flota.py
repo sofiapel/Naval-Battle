@@ -25,31 +25,14 @@ def leerArchivo():
 	return tuplas_barcos
 
 
-def tableroCorrecto(tupla):
-	tableroVacio = [[ 'v' for i in range(10) ] for j in range(10) ] #cambiarle el nombre a la variable
+def tableroCorrecto(tuplas):
+	solucion = [[ 'v' for i in range(10) ] for j in range(10) ]
 	letritas = {'A': 0, 'B': 1, 'C':2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7, 'I':8, 'J':9}
-	solucion = tupla
-	first_tuple_elements = []
-	second_tuple_elements = []
-	
-	for tupla in solucion:
-		first_tuple_elements.append(tupla[0])
-		second_tuple_elements.append(tupla[1])
-		
-	# ~ for i in range(0, len(second_tuple_elements)):
-		# ~ print(first_tuple_elements[i])
-		# ~ print(second_tuple_elements[i])
-		
-	# ~ print(letritas[first_tuple_elements[0]])
-		
-	for i in range (0,len(first_tuple_elements)):
-		tableroVacio[letritas[first_tuple_elements[i]]][int(second_tuple_elements[i])-1] = 'b' #first tuple elements es una letra aaaaa
-	
-	# ~ for i in range(0,len(tableroVacio)):
-		# ~ print(tableroVacio[i])
-	return tableroVacio
-		
-# ~ tableroCorrecto(leerArchivo())
+
+	for tupla in tuplas:
+		solucion[letritas[tupla[0]]][tupla[1]-1] = 'b'
+
+	return solucion
 
 def Tocau(tupla,tablero,fila,columna):
 	coordenadas = tupla
@@ -69,9 +52,9 @@ def Tocau(tupla,tablero,fila,columna):
 		
 # ~ Tocau(leerArchivo()) 
 	
-def ganadorPartida(tupla, tablero):
+def ganadorPartida(tuplas, tablero):
 	# ~ tablero = tableroCorrecto(tupla)
-	solucion = tableroCorrecto(tupla)
+	solucion = tableroCorrecto(tuplas)
 	count = 0
 	hundidos = 0
 	for item in solucion:
