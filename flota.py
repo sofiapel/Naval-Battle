@@ -53,27 +53,17 @@ def Tocau(tupla,tablero,fila,columna):
 # ~ Tocau(leerArchivo()) 
 	
 def ganadorPartida(tuplas, tablero):
-	# ~ tablero = tableroCorrecto(tupla)
 	solucion = tableroCorrecto(tuplas)
-	count = 0
-	hundidos = 0
+	faltaHundir = 0
 	for item in solucion:
-		hundidos += item.count('b')
+		faltaHundir += item.count('b')
 		
 	for i in range(10):
 		for j in range(10):
-			if tablero[i][j] == 'T':      #tendria q ser h aca o t si no consigo como hundir el barco 
-				 count += 1
+			if tablero[i][j] == 'T' or tablero[i][j] == 'H':
+				 faltaHundir -= 1
 		
-	# ~ print(hundidos)
-		
-
-	if (count == hundidos):
-		# ~ print("TRUE")
-		return True
-	else:
-		# ~ print("FALSE")
-		return False
+	return faltaHundir == 0
 		
 # ~ ganadorPartida(leerArchivo())
 
