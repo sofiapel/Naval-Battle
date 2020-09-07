@@ -4,10 +4,6 @@
 #include <stddef.h>
 #include <stdint.h>
 
-int casos = 1;
-
-
-
 typedef struct{
 	char letra;
 	int  num;
@@ -30,17 +26,14 @@ void laburar();
 int main(){
 	FILE * fp;
 	fp = fopen("configuraciones.txt", "r");
-	while(puedoLeer(fp)){
-		int b = sacarInfo(fp);
-		laburar(b);
-	}
+	int caso, b;
+	printf("Ingrese el número del caso porfi: ");
+	scanf("%d", &caso);
+	for (int i = 0; i < caso; i++)
+		b = sacarInfo(fp);
+	laburar(b);
 
 	return 0;
-}
-
-int puedoLeer(){
-	--casos;
-	return casos >= 0;
 }
 
 int sacarInfo(FILE * fp){

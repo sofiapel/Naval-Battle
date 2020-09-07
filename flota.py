@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-
-
 def leerArchivo():
 	tuplas_barcos = []
 	tupla_x = []
@@ -45,6 +43,16 @@ def Tocar(tuplas,tablero,fila,columna):
 		tablero[columnaa][filaa] = 'T'
 	else:
 		tablero[columnaa][filaa] = 'A'
+
+	# for barco in barcos:
+	# 	bool hundido = True
+	# 	for casilla in barco:
+	# 		if tablero[letritas[casilla[0]]][casilla[1]-1] == 'v':
+	# 			hundido = False
+	# 	if hundido:
+	# 		for casilla in barco:
+	# 			tablero[letritas[casilla[0]]][casilla[1]-1] = 'H'
+
 	return tablero
 	
 def ganadorPartida(tuplas, tablero):
@@ -57,12 +65,11 @@ def ganadorPartida(tuplas, tablero):
 		for j in range(10):
 			if tablero[i][j] == 'T' or tablero[i][j] == 'H':
 				 faltaHundir -= 1
-		
-	return faltaHundir == 0
-		
-# ~ ganadorPartida(leerArchivo())
 
-def mostrarAlgo(tablero):
+	return faltaHundir == 0
+
+
+def mostrarTablero(tablero):
 	# ~ tablero = [ [ 'v' for i in range(10) ] for j in range(10) ]
 	letras = ['A','B','C','D','E', 'F', 'G', 'H', 'I', 'J']
 
@@ -73,11 +80,10 @@ def mostrarAlgo(tablero):
 			print(f'{tablero[i][j]} |', end = ' ')	
 		print(f'{letras[i]}')
 
-# ~ mostrarAlgo()
 def JuegaNaval():
 	tablero = [ [ 'v' for i in range(10) ] for j in range(10) ]
 	tuplas_barcos = leerArchivo()
-	mostrarAlgo(tablero)
+	mostrarTablero(tablero)
 	
 	while(ganadorPartida(tuplas_barcos, tablero) != True): #Falta esto
 		print("Ingrese una letra o la palabra salir para abandonar el juego")
@@ -88,14 +94,14 @@ def JuegaNaval():
 			print("Ingrese un numero")
 			fila = int(input())
 			tablero = Tocar(tuplas_barcos,tablero,fila,columna)
-			mostrarAlgo(tablero)
+			mostrarTablero(tablero)
 		
 			#muestratablero1
 			#ingresaposicion
 			#leeposicion
 			#muestra tablero1 con la posicion elegida	
 	if(ganadorPartida(tuplas_barcos,tablero) == True):
-		print("Ganaste muy bien 10")
+		print("Te pasaste crack, muy bien, 10")
 
 
 JuegaNaval()
