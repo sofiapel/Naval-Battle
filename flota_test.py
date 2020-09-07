@@ -32,6 +32,9 @@ def tableroCorrecto(tuplas):
 
 	return solucion
 
+def tableroCorrecto_test():
+	assert(1 == 1)
+
 def Tocar(tuplas,tablero,fila,columna):
 	coordenadas = tuplas
 	solucion = tableroCorrecto(coordenadas)
@@ -54,7 +57,10 @@ def Tocar(tuplas,tablero,fila,columna):
 	# 			tablero[letritas[casilla[0]]][casilla[1]-1] = 'H'
 
 	return tablero
-	
+
+def Tocar_test():
+	assert(1 == 1)
+
 def ganadorPartida(tuplas, tablero):
 	solucion = tableroCorrecto(tuplas)
 	faltaHundir = 0
@@ -68,6 +74,8 @@ def ganadorPartida(tuplas, tablero):
 
 	return faltaHundir == 0
 
+def ganadorPartida_test():
+	assert(1 == 1)
 
 def mostrarTablero(tablero):
 	# ~ tablero = [ [ 'v' for i in range(10) ] for j in range(10) ]
@@ -102,6 +110,5 @@ def JuegaNaval():
 			#muestra tablero1 con la posicion elegida	
 	if(ganadorPartida(tuplas_barcos,tablero) == True):
 		print("Te pasaste crack, muy bien, 10")
-
 
 JuegaNaval()
