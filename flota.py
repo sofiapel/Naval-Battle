@@ -34,23 +34,18 @@ def tableroCorrecto(tuplas):
 
 	return solucion
 
-def Tocau(tupla,tablero,fila,columna):
-	coordenadas = tupla
-	lista = tableroCorrecto(coordenadas)
+def Tocar(tuplas,tablero,fila,columna):
+	coordenadas = tuplas
+	solucion = tableroCorrecto(coordenadas)
 	letritas = {'A': 0, 'B': 1, 'C':2, 'D':3, 'E':4, 'F':5, 'G':6, 'H':7, 'I':8, 'J':9}
-	# ~ columna = input()
-	# ~ fila = int(input())
+
 	columnaa = letritas[columna]
 	filaa = fila - 1
-	if lista[columnaa][filaa] == 'b':
-		# ~ print('re tocado')
+	if solucion[columnaa][filaa] == 'b':
 		tablero[columnaa][filaa] = 'T'
 	else:
-		# ~ print('agua')
 		tablero[columnaa][filaa] = 'A'
 	return tablero
-		
-# ~ Tocau(leerArchivo()) 
 	
 def ganadorPartida(tuplas, tablero):
 	solucion = tableroCorrecto(tuplas)
@@ -81,9 +76,10 @@ def mostrarAlgo(tablero):
 # ~ mostrarAlgo()
 def JuegaNaval():
 	tablero = [ [ 'v' for i in range(10) ] for j in range(10) ]
+	tuplas_barcos = leerArchivo()
 	mostrarAlgo(tablero)
 	
-	while(ganadorPartida(leerArchivo(), tablero) != True): #Falta esto
+	while(ganadorPartida(tuplas_barcos, tablero) != True): #Falta esto
 		print("Ingrese una letra o la palabra salir para abandonar el juego")
 		columna = input()
 		if (columna == "salir"):
@@ -91,14 +87,14 @@ def JuegaNaval():
 		else:
 			print("Ingrese un numero")
 			fila = int(input())
-			tablero = Tocau(leerArchivo(),tablero,fila,columna)
+			tablero = Tocar(tuplas_barcos,tablero,fila,columna)
 			mostrarAlgo(tablero)
 		
 			#muestratablero1
 			#ingresaposicion
 			#leeposicion
 			#muestra tablero1 con la posicion elegida	
-	if(ganadorPartida(leerArchivo(),tablero) == True):
+	if(ganadorPartida(tuplas_barcos,tablero) == True):
 		print("Ganaste muy bien 10")
 
 
